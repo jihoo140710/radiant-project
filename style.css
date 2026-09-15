@@ -822,3 +822,35 @@ html {
   font-size: 14px;
   line-height: 1.7;
 }
+/* ==========================================
+   모달 (팝업창) 정중앙배치 보정 스타일
+   ========================================== */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  z-index: 9999;
+  
+  /* 화면 정중앙 정렬 속성 */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #17212b;
+  border: 1px solid #ff4655;
+  border-radius: 12px;
+  padding: 30px;
+  width: 90%;
+  max-width: 520px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  margin: 0 !important; /* 이전의 위치 치우침(margin) 초기화 */
+}
