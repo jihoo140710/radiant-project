@@ -200,3 +200,113 @@ function openTipModal(tipKey) {
     modal.style.display = 'flex'; // 화면 중앙 정렬을 위해 flex 지정
   }
 }
+// ==========================================
+// 기존 tips.html 카드 텍스트를 그대로 읽어오는 모달 함수
+// ==========================================
+function openTipModal(element) {
+  // 클릭된 카드 요소 또는 데이터 찾기
+  let card = element;
+  if (typeof element === 'string') {
+    // 만약 기존처럼 openTipModal('tip1') 형태로 호출된 경우 대응
+    const cards = document.querySelectorAll('.tip-card');
+    card = Array.from(cards).find(c => c.getAttribute('onclick')?.includes(element)) || cards[0];
+  }
+
+  if (!card) return;
+
+  // 카드 겉면에 적힌 텍스트 읽기
+  const tagText = card.querySelector('.tip-tag')?.textContent || '게임 팁';
+  const titleText = card.querySelector('h3')?.textContent || '팁 상세 정보';
+  const descText = card.querySelector('p')?.textContent || '';
+
+  // 모달 요소 가져오기
+  const modal = document.getElementById('agentModal') || document.getElementById('tipModal');
+  const modalHeader = document.getElementById('modalHeader');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalBody = document.getElementById('modalBody');
+
+  // 모달 내용에 카드 텍스트 그대로 주입
+  if (modalHeader) {
+    modalHeader.className = 'badge';
+    modalHeader.textContent = tagText;
+  }
+  if (modalTitle) modalTitle.textContent = titleText;
+  if (modalBody) {
+    modalBody.innerHTML = `<b>상세 가이드:</b><br>${descText}`;
+  }
+
+  // 모달 창 열기
+  if (modal) {
+    modal.style.display = 'flex';
+  }
+}
+// ==========================================
+// 팁 카드 제목 기반 상세 내용 데이터 & 모달 연결
+// ==========================================
+const tipDetailDatabase = {
+  '헤드라인': `<b>자세한 가이드:</b><br>
+  • <b>구조물 가이드:</b> 맵에 배치된 상자 2단 높이, 벽면의 줄무늬 라인이 모두 헤드라인 높이와 일치합니다.<br>
+  • <b>에임 두는 위치:</b> 코너를 돌 때 벽 바로 옆이 아닌, 적이 튀어나올 범위를 계산하여 약간 넓게 조준선을 배치하세요.<br>
+  • <b>연습 팁:</b> 사격장에서 로봇의 머리 위치에 조준선을 고정한 채 좌우로 이동하며 에임을 유지하는 방사형 연습을 추천합니다.`,
+  
+  '브레이킹': `<b>자세한 가이드:</b><br>
+  • <b>메커니즘:</b> 이동 키를 떼는 것보다 진행 반대 방향 키를 톡 쳐주면 순간적으로 이동 속도가 0이 되어 명중률이 100%로 회복됩니다.<br>
+  • <b>카운터 스트레이핑:</b> A키로 왼쪽 이동 중 D키를 짧게 눌러 사격 후 다시 A키로 숨는 '와이핑' 테크닉이 핵심입니다.<br>
+  • <b>주의사항:</b> 크로스헤어가 벌어지는 동안 사격하면 탄이 완전히 튀므로, 소리와 십자가 모양을 확인하고 사격하세요.`,
+  
+  '자금': `<b>자세한 가이드:</b><br>
+  • <b>풀바이 라운드:</b> 팀원 전체 자금이 3,900~4,500크레드 이상일 때 밴달/팬텀과 중갑옷, 핵심 스킬을 구매합니다.<br>
+  • <b>이코(세이브) 라운드:</b> 다음 라운드 풀바이를 위해 1,500~2,000크레드 이상을 남기고 크래식/저스티스만 구매합니다.<br>
+  • <b>바이 버튼 활용:</b> 팀원에게 '구매 요청'을 하거나 여유 자금이 있을 땐 팀원의 무기를 사주어 팀 전체의 전력을 일치시키세요.`,
+  
+  '스파이크': `<b>자세한 가이드:</b><br>
+  • <b>반해체(페이크):</b> 4초 이상 눌러 50% 진행선(체크포인트)을 만드는 것이 중요합니다. 소리만 내고 1초 뒤 사격 준비를 하세요.<br>
+  • <b>설치 위치:</b> 사방이 막힌 곳보다는 팀원이 롱 거리에 위치해 사격 지원을 해줄 수 있는 '오픈 설치' 구역을 활용하세요.<br>
+  • <b>시간 계산:</b> 스파이크는 총 45초 후 폭발하며, 해체에는 총 7초(반해체 3.5초)가 소요됩니다.`
+};
+
+function openTipModal(element) {
+  let card = element;
+
+  // 카드 요소 찾기
+  if (typeof element === 'string') {
+    const cards = document.querySelectorAll('.tip-card');
+    card = Array.from(cards).find(c => c.getAttribute('onclick')?.includes(element)) || cards[0];
+  } else if (!element || !element.classList?.contains('tip-card')) {
+    card = event?.currentTarget || document.querySelector('.tip-card');
+  }
+
+  if (!card) return;
+
+  // 카드 정보 읽기
+  const tagText = card.querySelector('.tip-tag')?.textContent || '게임 팁';
+  const titleText = card.querySelector('h3')?.textContent || '팁 상세 정보';
+  const descText = card.querySelector('p')?.textContent || '';
+
+  // 제목 키워드에 맞는 긴 상세 내용 찾기
+  let detailedBody = `<b>상세 가이드:</b><br>${descText}<br><br>• 추가적인 실전 팁을 활용해 전술적 우위를 점해보세요.`;
+  
+  for (const key in tipDetailDatabase) {
+    if (titleText.includes(key)) {
+      detailedBody = tipDetailDatabase[key];
+      break;
+    }
+  }
+
+  // 모달 요소에 내용 연결
+  const modal = document.getElementById('agentModal') || document.getElementById('tipModal');
+  const modalHeader = document.getElementById('modalHeader');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalBody = document.getElementById('modalBody');
+
+  if (modalHeader) {
+    modalHeader.className = 'badge';
+    modalHeader.textContent = tagText;
+  }
+  if (modalTitle) modalTitle.textContent = titleText;
+  if (modalBody) modalBody.innerHTML = detailedBody;
+
+  if (modal) {
+    modal.style.display = 'flex';
+  }
+}
