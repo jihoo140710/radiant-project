@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VALO-HUB | 발로란트 소식</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 상단 메뉴바 -->
+  <header class="navbar">
+    <div class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">VALO-HUB</a></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">메인</a></li>
+        <li><a href="tips.html">게임 팁 & 가이드</a></li>
+        <li><a href="agents-maps.html">요원 & 맵 공략</a></li>
+        <li><a href="news.html" class="active">발로란트 소식</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 메인 영역 -->
+  <main class="container">
+    <section class="news-section">
+      <h2 class="section-title">최신 발로란트 뉴스 & 소식</h2>
+      <p class="section-desc">패치 노트, 이벤트, e스포츠(VCT) 최신 소식을 실시간으로 확인하세요.</p>
+
+      <!-- 카테고리 필터 버튼 -->
+      <div class="news-controls">
+        <div class="filter-buttons">
+          <button class="filter-btn active" onclick="filterNews('all')">전체 소식</button>
+          <button class="filter-btn" onclick="filterNews('patch')">패치 노트</button>
+          <button class="filter-btn" onclick="filterNews('event')">이벤트</button>
+          <button class="filter-btn" onclick="filterNews('esports')">e스포츠 (VCT)</button>
+        </div>
+      </div>
+
+      <!-- 뉴스 카드 그리드 (15개) -->
+      <div class="news-grid">
+
+        <!-- 소식 1 -->
+        <article class="news-card patch" onclick="openModal('patch1')">
+          <div class="news-badge patch">패치 노트</div>
+          <div class="news-date">2026.09.08</div>
+          <h3>[패치 노트 11.08] 최신 요원 밸런스 패치 및 편의성 개선</h3>
+          <p>감시자 요원 스킬 쿨타임 조정과 게임 내 사격음 및 UI 지점 표시 개선이 진행되었습니다...</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </article>
+
+        <!-- 소식 2 -->
+        <article class="news-card esports" onclick="openModal('esports1')">
+          <div class="news-badge esports">e스포츠</div>
+          <div class="news-date">2026.09.02</div>
+          <h3>VCT 챔피언스 2026 플레이오프 일정 및 관전 포인트</h3>
+          <p>세계 최고 팀들의 진검승부! 플레이오프 대진표와 시청자 전용 드롭스 보상을 확인하세요...</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </article>
+
+        <!-- 소식 3 -->
+        <article class="news-card event" onclick="openModal('event1')">
+          <div class="news-badge event">이벤트</div>
+          <div class="news-date">2026.08.28</div>
+          <h3>신규 한정 스킨 출시 및 출석 체크 보상 이벤트</h3>
+          <p>새로운 테마 스킨 출시 기념! 3일만 접속해도 무료 한정판 총기 장식과 카드를 드립니다...</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </article>
+
+        <!-- 소식 4 -->
+        <article class="news-card patch" onclick="openModal('patch2')">
+          <div class="news-badge patch">패치 노트</div>
+          <div class="news-date">2026.08.19</div>
+          <h3>[패치 노트 11.06] 경쟁전 맵 로테이션 변경 안내</h3>
+          <p>경쟁전 맵 풀에 변화가 적용됩니다. 바인드가 복귀하고 로터스가 잠시 제외됩니다...</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </article>
+
+        <!-- 소식 5 -->
+        <article class="news-card esports" onclick="openModal('esports2')">
+          <div class="news-badge esports">e스포츠</div>
+          <div class="news-date">2026.08.10</div>
+          <h3>VCT 퍼시픽 오프라인 뷰잉 파티 신청 안내</h3>
+          <p>팬들과 함께 응원하는 오프라인 뷰잉 파티! 현장 방문객 전원에게 스페셜 굿즈를 제공합니다...</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </article>
+
+        <!-- 소식 6 -->
+        <article class="news-card event" onclick="openModal('event2')">
+          <div class="news-badge event">이벤트</div>
+          <div class="news-date">2026.07.30</div>
+          <h3>라이엇 프리미엄 PC방 혜택 개편 안내</h3>
+          <p>전국 프리미엄 PC방 전용 총기 스킨 무료 대여 및 경험치 추가 획득 혜택이 강화되었습니다...</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </article>
+
+        <!-- 소식 7 -->
+        <article class="news-card patch" onclick="openModal('patch3')">
+          <div class="news-badge patch">패치 노트</div>
+          <div class="news-date">2026.07.22</div>
+          <h3>[패치 노트 11.04] 전략가 요원 성능 재조정</h3>
+          <p>오멘, 브림스톤, 클로브 등 전략가 요원들의 연막 지속 시간 및 스킬 범위가 업데이트되었습니다...</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </article>
+
+        <!-- 소식 8 -->
+        <article class="news-card esports" onclick="openModal('esports3')">
+          <div class="news-badge esports">e스포츠</div>
+          <div class="news-date">2026.07.15</div>
+          <h3>2026 VCT 마스터스 최종 결승전 하이라이트</h3>
+          <p>치열했던 마스터스 무대의 명장면 모음집과 최우수 선수(MVP) 인터뷰가 공개되었습니다...</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </article>
+
+        <!-- 소식 9 -->
+        <article class="news-card event" onclick="openModal('event3')">
+          <div class="news-badge event">이벤트</div>
+          <div class="news-date">2026.07.05</div>
+          <h3>여름 맞이 수호자 미션 & VP 할인 혜택</h3>
+          <p>여름 시즌 한정 수호자 미션을 달성하고 추가 VP 및 전용 플레이어 칭호를 획득하세요...</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </article>
+
+        <!-- 소식 10 -->
+        <article class="news-card patch" onclick="openModal('patch4')">
+          <div class="news-badge patch">패치 노트</div>
+          <div class="news-date">2026.06.28</div>
+          <h3>[패치 노트 11.02] 신규 요원 정식 플레이 적용</h3>
+          <p>새롭게 등장한 요원의 공식 랭크 게임 사용이 해제되었으며 초기 밸런스 버그가 수정되었습니다...</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </article>
+
+        <!-- 소식 11 -->
+        <article class="news-card esports" onclick="openModal('esports4')">
+          <div class="news-badge esports">e스포츠</div>
+          <div class="news-date">2026.06.18</div>
+          <h3>VCT 어센션 아시아 지역 예선 대진표 발표</h3>
+          <p>챔피언스 투어 승격을 향한 아시아 신예 팀들의 치열한 도전! 방송 일정과 팀 구성을 안내합니다...</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </article>
+
+        <!-- 소식 12 -->
+        <article class="news-card event" onclick="openModal('event4')">
+          <div class="news-badge event">이벤트</div>
+          <div class="news-date">2026.06.10</div>
+          <h3>발로란트 크리에이터 팀 배틀 쇼다운</h3>
+          <p>인기 스트리머들과 프로선수들이 펼치는 이벤트 매치! 승자 예측 이벤트에 참여해보세요...</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </article>
+
+        <!-- 소식 13 -->
+        <article class="news-card patch" onclick="openModal('patch5')">
+          <div class="news-badge patch">패치 노트</div>
+          <div class="news-date">2026.05.30</div>
+          <h3>[패치 노트 11.00] 에피소드 신규 시즌 대규모 업데이트</h3>
+          <p>새로운 액트 시작! 랭크 초기화와 배틀패스 개편, 총기 반동 및 감도 시스템 개선이 적용됩니다...</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </article>
+
+        <!-- 소식 14 -->
+        <article class="news-card esports" onclick="openModal('esports5')">
+          <div class="news-badge esports">e스포츠</div>
+          <div class="news-date">2026.05.20</div>
+          <h3>VCT 퍼시픽 정규 시즌 상반기 총결산</h3>
+          <p>상반기 리그를 지배한 핵심 전략과 유저들이 뽑은 최고의 클러치 플레이 TOP 5를 확인하세요...</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </article>
+
+        <!-- 소식 15 -->
+        <article class="news-card event" onclick="openModal('event5')">
+          <div class="news-badge event">이벤트</div>
+          <div class="news-date">2026.05.12</div>
+          <h3>친구 초대 특별 웹 이벤트 & 라디안 포인트 지급</h3>
+          <p>친구를 초대하고 함께 일반전/경쟁전을 플레이하면 라디안 포인트와 총기 스킨을 지급합니다...</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- 뉴스 상세 모달 (팝업창) -->
+  <div id="news-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <div id="modal-badge" class="news-badge">카테고리</div>
+      <div id="modal-date" class="news-date">날짜</div>
+      <h2 id="modal-title">뉴스 제목</h2>
+      <hr class="modal-divider">
+      <div id="modal-body" class="modal-body-text">뉴스 상세 내용이 이곳에 표시됩니다.</div>
+    </div>
+  </div>
+
+  <!-- 푸터 -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p class="creator-info">사이트 제작자: <strong>신지후</strong> (호원초등학교 6학년)</p>
+      <p class="copyright">© 2026 VALO-HUB. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

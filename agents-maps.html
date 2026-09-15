@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>레디언트 프로젝트 | 요원 & 맵 공략</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 상단 가로 메뉴바 -->
+  <header class="navbar">
+    <div class="logo">레디언트 프로젝트</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">메인</a></li>
+        <li><a href="tips.html">게임 팁 & 가이드</a></li>
+        <li><a href="agents-maps.html" class="active">요원 & 맵 공략</a></li>
+        <li><a href="news.html">발로란트 소식</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>요원 목록 (총 29명)</h2>
+      <div class="agents-grid">
+        <!-- 1. 제트 -->
+        <div class="agent-card duelist" onclick="openAgentModal('jett')">
+          <div class="agent-role duelist">타격대</div>
+          <h3>제트 (Jett)</h3>
+          <p>빠른 기동력과 순풍을 이용해 적진을 교란하고 기습합니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 2. 레이즈 -->
+        <div class="agent-card duelist" onclick="openAgentModal('raze')">
+          <div class="agent-role duelist">타격대</div>
+          <h3>레이즈 (Raze)</h3>
+          <p>폭발물과 페인트 탄을 활용해 지역을 강제로 장악합니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 3. 피닉스 -->
+        <div class="agent-card duelist" onclick="openAgentModal('phoenix')">
+          <div class="agent-role duelist">타격대</div>
+          <h3>피닉스 (Phoenix)</h3>
+          <p>섬광과 화염 스킬로 자신을 치유하며 진입을 이끕니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 4. 레이나 -->
+        <div class="agent-card duelist" onclick="openAgentModal('reyna')">
+          <div class="agent-role duelist">타격대</div>
+          <h3>레이나 (Reyna)</h3>
+          <p>적 처치 시 생명력을 회복하거나 무적 상태가 됩니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 5. 요루 -->
+        <div class="agent-card duelist" onclick="openAgentModal('yoru')">
+          <div class="agent-role duelist">타격대</div>
+          <h3>요루 (Yoru)</h3>
+          <p>차원 이동과 분신을 활용해 적을 속이고 침투합니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 6. 네온 -->
+        <div class="agent-card duelist" onclick="openAgentModal('neon')">
+          <div class="agent-role duelist">타격대</div>
+          <h3>네온 (Neon)</h3>
+          <p>폭발적인 질주 속도로 적의 예측을 불허하는 진입을 시도합니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 7. 아이소 -->
+        <div class="agent-card duelist" onclick="openAgentModal('iso')">
+          <div class="agent-role duelist">타격대</div>
+          <h3>아이소 (Iso)</h3>
+          <p>에너지 보호막을 생성하고 1대 1 결투 영역으로 적을 끌어들입니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 8. 웨이레이 -->
+        <div class="agent-card duelist" onclick="openAgentModal('waylay')">
+          <div class="agent-role duelist">타격대</div>
+          <h3>웨이레이 (Waylay)</h3>
+          <p>빛으로 변신하여 전장을 누비고 빠른 기습 후 안전하게 복귀합니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 9. 소바 -->
+        <div class="agent-card initiator" onclick="openAgentModal('sova')">
+          <div class="agent-role initiator">이니시에이터</div>
+          <h3>소바 (Sova)</h3>
+          <p>정찰 화살과 드론으로 적의 위치 정보를 정확히 파악합니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 10. 페이드 -->
+        <div class="agent-card initiator" onclick="openAgentModal('fade')">
+          <div class="agent-role initiator">이니시에이터</div>
+          <h3>페이드 (Fade)</h3>
+          <p>공포의 악몽을 풀어놓아 적의 위치를 추적하고 청각을 마비시킵니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 11. 브리치 -->
+        <div class="agent-card initiator" onclick="openAgentModal('breach')">
+          <div class="agent-role initiator">이니시에이터</div>
+          <h3>브리치 (Breach)</h3>
+          <p>벽을 통과하는 충격파와 뇌진탕 스킬로 진영을 와해시킵니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 12. 스카이 -->
+        <div class="agent-card initiator" onclick="openAgentModal('skye')">
+          <div class="agent-role initiator">이니시에이터</div>
+          <h3>스카이 (Skye)</h3>
+          <p>맹수 야수 스킬과 매 섬광으로 정보를 얻고 아군을 치유합니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 13. 케이/오 -->
+        <div class="agent-card initiator" onclick="openAgentModal('kayo')">
+          <div class="agent-role initiator">이니시에이터</div>
+          <h3>케이/오 (KAY/O)</h3>
+          <p>제압 단검으로 적의 스킬 사용을 차단하는 전쟁 병기입니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 14. 게코 -->
+        <div class="agent-card initiator" onclick="openAgentModal('gekko')">
+          <div class="agent-role initiator">이니시에이터</div>
+          <h3>게코 (Gekko)</h3>
+          <p>크리처 생명체들을 조종하여 스파이크 설치 및 적 제압을 수행합니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 15. 테호 -->
+        <div class="agent-card initiator" onclick="openAgentModal('tejo')">
+          <div class="agent-role initiator">이니시에이터</div>
+          <h3>테호 (Tejo)</h3>
+          <p>전술 미사일과 정밀 타격 드론으로 적의 진형을 무너뜨립니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 16. 오멘 -->
+        <div class="agent-card controller" onclick="openAgentModal('omen')">
+          <div class="agent-role controller">전략가</div>
+          <h3>오멘 (Omen)</h3>
+          <p>어둠의 연막과 순간이동으로 전장의 시야를 제어합니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 17. 브림스톤 -->
+        <div class="agent-card controller" onclick="openAgentModal('brimstone')">
+          <div class="agent-role controller">전략가</div>
+          <h3>브림스톤 (Brimstone)</h3>
+          <p>전술 맵을 활용해 정확한 위치에 연막을 동시에 투하합니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 18. 바이퍼 -->
+        <div class="agent-card controller" onclick="openAgentModal('viper')">
+          <div class="agent-role controller">전략가</div>
+          <h3>바이퍼 (Viper)</h3>
+          <p>독성 장막과 연막으로 거대한 지역의 시야를 지속해서 차단합니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 19. 아스트라 -->
+        <div class="agent-card controller" onclick="openAgentModal('astra')">
+          <div class="agent-role controller">전략가</div>
+          <h3>아스트라 (Astra)</h3>
+          <p>아스트랄 형상에서 별을 배치해 진공, 뇌진탕, 연막을 조종합니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 20. 하버 -->
+        <div class="agent-card controller" onclick="openAgentModal('harbor')">
+          <div class="agent-role controller">전략가</div>
+          <h3>하버 (Harbor)</h3>
+          <p>거대한 물의 방벽과 방호 구체로 진격 경로를 보호합니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 21. 클로브 -->
+        <div class="agent-card controller" onclick="openAgentModal('clove')">
+          <div class="agent-role controller">전략가</div>
+          <h3>클로브 (Clove)</h3>
+          <p>사망 후에도 연막을 칠 수 있으며 부활 능력을 가진 전략가입니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 22. 믹스 -->
+        <div class="agent-card controller" onclick="openAgentModal('miks')">
+          <div class="agent-role controller">전략가</div>
+          <h3>믹스 (Miks)</h3>
+          <p>유연한 스킬 조합과 영역 제어로 변수를 창출하는 전략가입니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 23. 킬조이 -->
+        <div class="agent-card sentinel" onclick="openAgentModal('killjoy')">
+          <div class="agent-role sentinel">감시자</div>
+          <h3>킬조이 (Killjoy)</h3>
+          <p>포탑과 알람봇, 나노스웜으로 거점을 철통같이 방어합니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 24. 사이퍼 -->
+        <div class="agent-card sentinel" onclick="openAgentModal('cypher')">
+          <div class="agent-role sentinel">감시자</div>
+          <h3>사이퍼 (Cypher)</h3>
+          <p>스파이캠과 함정을 이용해 적의 접근을 사전 감지합니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 25. 세이지 -->
+        <div class="agent-card sentinel" onclick="openAgentModal('sage')">
+          <div class="agent-role sentinel">감시자</div>
+          <h3>세이지 (Sage)</h3>
+          <p>장벽 설치와 치유, 그리고 아군 부활 스킬로 팀을 지원합니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 26. 체임버 -->
+        <div class="agent-card sentinel" onclick="openAgentModal('chamber')">
+          <div class="agent-role sentinel">감시자</div>
+          <h3>체임버 (Chamber)</h3>
+          <p>전용 권총과 저격총, 앵커 순간이동으로 거점을 사수합니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 27. 데드록 -->
+        <div class="agent-card sentinel" onclick="openAgentModal('deadlock')">
+          <div class="agent-role sentinel">감시자</div>
+          <h3>데드록 (Deadlock)</h3>
+          <p>음향 센서와 장벽 메쉬로 적의 진입을 저지하고 사로잡습니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 28. 바이스 -->
+        <div class="agent-card sentinel" onclick="openAgentModal('vyse')">
+          <div class="agent-role sentinel">감시자</div>
+          <h3>바이스 (Vyse)</h3>
+          <p>액상 금속으로 적의 무기를 봉인하고 경로를 철저히 막습니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+
+        <!-- 29. 비토 -->
+        <div class="agent-card sentinel" onclick="openAgentModal('veto')">
+          <div class="agent-role sentinel">감시자</div>
+          <h3>비토 (Veto)</h3>
+          <p>상대의 능력과 기술을 무력화하여 순수 사격 싸움을 유도합니다.</p>
+          <span class="read-more">자세히 보기 &rarr;</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 요원 모달 창 -->
+  <div id="agentModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeAgentModal()">&times;</span>
+      <div id="modalHeader"></div>
+      <h2 id="modalTitle"></h2>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
